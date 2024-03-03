@@ -1,8 +1,8 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react"
 import { authString } from "../config/auth"
 
-export const api = createApi({
-    reducerPath: "/",
+export const apiRtk = createApi({
+    reducerPath: "apiRtk",
     baseQuery: fetchBaseQuery({ 
         baseUrl: "http://api.valantis.store:40000/",
         prepareHeaders: (headers, { getState }) => {
@@ -11,16 +11,19 @@ export const api = createApi({
         },
     }),
     endpoints: (build) => ({
-      getP: build.query({
-        query: () => ({ 
+      getIds: build.query({
+        query: ({ offset = 0 }) => ({ 
             method: "POST",
             body: {
-                "action": "filter",
-                "params": {"price": 17500.0}
+                "action": "get_ids",
+                "params": {
+                    "offset": offset, 
+                    "limit": 50
+                }
             }
         }),
       }),
     }),
   })
 
-  export const { useGetPQuery } = api
+  export const { useGetIdsQuery } = apiRtk

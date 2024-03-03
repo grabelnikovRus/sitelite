@@ -1,9 +1,15 @@
 import React, { useEffect } from "react"
-
-import { useGetPQuery } from "../api"
+import { useDispatch, useSelector } from "react-redux"
+import { addIdsActions } from "../store/slices/addIdsSlice"
+import { getProductAdapter } from "../store/slices/addProductSlice"
+import { CardProduct } from "../components/CardProduct"
 
 export const App = () => {
-    const { data, isLoading } = useGetPQuery();
-    console.log(data)
-    return <div>dsdscdcdcdcdcdsdsd</div>
+    const dispatch = useDispatch()
+    const products = useSelector(getProductAdapter.selectAll)
+console.log(products)
+    useEffect(() => {
+        dispatch(addIdsActions.init())
+    }, [])
+    return <div>{products.map((item) => (<CardProduct {...item} />))}</div>
 }
