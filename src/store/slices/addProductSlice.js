@@ -6,10 +6,11 @@ const productAdapter = createEntityAdapter({
 });
 
 export const getProductAdapter = productAdapter.getSelectors(
-    (state) => state.product || productAdapter.getInitialState()
+  (state) => state.product || productAdapter.getInitialState()
 );
 
 const initialState = productAdapter.getInitialState({
+    offset: 0,
     ids: [],
     entities: {},
     isLoading: false,
@@ -20,7 +21,10 @@ const addProductSlice = createSlice({
   name: "addProduct",
   initialState,
   reducers: {
-    
+    init() {},
+    setOffset(state, action) {
+      state.offset = action.payload;
+    },
   },
   extraReducers: ({ addCase }) => {
     addCase(fetchProduct.pending, (state, action) => {

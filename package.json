@@ -4,7 +4,7 @@
   "description": "updating old knowledge",
   "main": "index.js",
   "scripts": {
-    "dev": "webpack serve --open"
+    "start": "webpack serve --open"
   },
   "keywords": [
     "learn",
