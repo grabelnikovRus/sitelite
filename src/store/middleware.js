@@ -10,3 +10,11 @@ startUserMiddleware({
     await api.dispatch(fetchProduct())
   },
 });
+
+startUserMiddleware({
+  actionCreator: addProductActions.setOffset,
+  effect: async (_, api) => {
+    const offset = api.getState().product.offset
+    await api.dispatch(fetchProduct(offset))
+  },
+});

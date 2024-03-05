@@ -35,6 +35,14 @@ module.exports = {
               },
             },
           },
+          {
+            test: /\.s[ac]ss$/i,
+            use: [
+              "style-loader", 
+              "css-loader", // "css-loader" - Переводит CSS в CommonJS
+              "sass-loader", // Компилирует Sass в CSS
+            ],
+          }
         ]
     }
 }

@@ -1,0 +1,23 @@
+.root {
+    display: grid;
+    grid-template-areas: 
+        "title title"
+        "price brand";
+    row-gap: 10px;
+    padding: 10px;
+    border: 1px solid black;
+    border-radius: 8px;
+
+    &__title {
+        grid-area: title;
+    }
+
+    &__price {
+        grid-area: price;
+    }
+
+    &__brand{
+        grid-area: brand;
+        justify-self: end;
+    }
+}

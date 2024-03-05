@@ -1,0 +1,20 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+button {
+    outline: none;
+    background: none;
+    border: none;
+}
+
+.list {
+    display: grid;
+    row-gap: 10px;
+    margin-bottom: 45px;
+}
+
+#root {
+    position: relative;
+}

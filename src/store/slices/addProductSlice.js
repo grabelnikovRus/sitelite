@@ -24,6 +24,7 @@ const addProductSlice = createSlice({
     init() {},
     setOffset(state, action) {
       state.offset = action.payload;
+      productAdapter.removeAll(state)
     },
   },
   extraReducers: ({ addCase }) => {

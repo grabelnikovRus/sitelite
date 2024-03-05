@@ -1,4 +1,5 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
+import { LIMIT } from "../config/constants"
 
 export const fetchProduct = createAsyncThunk(
     "addProduct/fetchProduct",
@@ -8,7 +9,7 @@ export const fetchProduct = createAsyncThunk(
           action: "get_ids",
           params: {
             offset,
-            limit: 50
+            limit: LIMIT
           },
         });
 
